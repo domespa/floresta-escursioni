@@ -1,27 +1,37 @@
 ---
-import '../styles/global.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import "../styles/fonts.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Floresta Escursioni | Trekking ed escursioni guidate sui Nebrodi",
+  description = "Escursioni guidate a piedi tra boschi, laghi e gole dei Nebrodi. Percorsi per tutti i livelli, dalle passeggiate in famiglia ai trekking più impegnativi.",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="it">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
 	</head>
-	<body>
-		<slot />
+	<body class="flex min-h-screen flex-col">
+		<Header />
+		<main class="flex-1">
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

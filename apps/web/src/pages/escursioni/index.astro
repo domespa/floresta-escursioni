@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HikeCard from "../../components/HikeCard.astro";
+import { hikes } from "../../data/hikes";
+---
+
+<Layout
+  title="Escursioni | Floresta Escursioni"
+  description="Tutte le escursioni guidate sui Nebrodi: boschi, laghi, gole e alta quota, per ogni livello di allenamento."
+>
+  <section class="border-b border-forest-100 bg-forest-50 py-14">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-wide text-clay-600">Tutte le escursioni</p>
+      <h1 class="mt-1 font-display text-4xl font-semibold text-forest-900">Trova il tuo prossimo sentiero</h1>
+      <p class="mt-3 max-w-2xl text-forest-600">
+        {hikes.length} percorsi tra boschi, laghi e gole dei Nebrodi, con guide esperte e gruppi ridotti.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <div id="mode-filters" class="mb-8 flex flex-wrap gap-2">
+      <button
+        type="button"
+        data-filter="all"
+        data-active="true"
+        class="rounded-full border border-forest-200 bg-white px-4 py-2 text-sm font-medium text-forest-700 transition-colors hover:border-forest-400 data-[active=true]:border-clay-600 data-[active=true]:bg-clay-600 data-[active=true]:text-white"
+      >
+        Tutte
+      </button>
+      <button
+        type="button"
+        data-filter="quad"
+        data-active="false"
+        class="flex items-center gap-2 rounded-full border border-forest-200 bg-white px-4 py-2 text-sm font-medium text-forest-700 transition-colors hover:border-forest-400 data-[active=true]:border-clay-600 data-[active=true]:bg-clay-600 data-[active=true]:text-white"
+      >
+        <img src="/quadicon.png" alt="" class="h-5 w-5" />
+        Guidate in quad
+      </button>
+      <button
+        type="button"
+        data-filter="trekking-mtb"
+        data-active="false"
+        class="rounded-full border border-forest-200 bg-white px-4 py-2 text-sm font-medium text-forest-700 transition-colors hover:border-forest-400 data-[active=true]:border-clay-600 data-[active=true]:bg-clay-600 data-[active=true]:text-white"
+      >
+        Trekking o Mountain Bike
+      </button>
+    </div>
+
+    <div id="hike-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {hikes.map((hike) => <HikeCard hike={hike} />)}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>("#mode-filters button");
+  const cards = document.querySelectorAll<HTMLElement>("#hike-grid > article");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      buttons.forEach((b) => (b.dataset.active = String(b === button)));
+      cards.forEach((card) => {
+        const show = filter === "all" || card.dataset.mode === filter;
+        card.classList.toggle("hidden", !show);
+      });
+    });
+  });
+</script>

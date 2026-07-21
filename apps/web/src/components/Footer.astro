@@ -1,0 +1,60 @@
+---
+import MapEmbed from "./MapEmbed.astro";
+
+const year = new Date().getFullYear();
+const address = "Corso Indipendenza, 29, 98030 Floresta ME";
+---
+
+<footer class="border-t border-forest-100 bg-forest-900 text-cream-100">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-forest-300">Link utili</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="/escursioni" class="hover:text-white">Escursioni</a></li>
+        <li><a href="/chi-siamo" class="hover:text-white">Chi Siamo</a></li>
+        <li><a href="/contatti" class="hover:text-white">Contatti</a></li>
+        <li><a href="/privacy-policy" class="hover:text-white">Privacy Policy</a></li>
+        <li><a href="/cookie-policy" class="hover:text-white">Cookie Policy</a></li>
+      </ul>
+
+      <p class="mt-6 text-sm font-semibold uppercase tracking-wide text-forest-300">Seguici sui nostri profili social</p>
+      <div class="mt-3 flex gap-3">
+        <a
+          href="https://facebook.com/florestaescursioni"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          class="flex h-9 w-9 items-center justify-center rounded-full bg-forest-800 text-forest-100 transition-colors hover:bg-clay-600 hover:text-white"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+            <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94Z" />
+          </svg>
+        </a>
+        <a
+          href="https://instagram.com/florestaescursioni"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="flex h-9 w-9 items-center justify-center rounded-full bg-forest-800 text-forest-100 transition-colors hover:bg-clay-600 hover:text-white"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+            <path d="M12 2c-2.72 0-3.06.01-4.12.06-1.06.05-1.79.22-2.43.47-.66.26-1.22.6-1.77 1.16-.56.55-.9 1.11-1.16 1.77-.25.64-.42 1.37-.47 2.43C2 8.94 2 9.28 2 12s.01 3.06.06 4.12c.05 1.06.22 1.79.47 2.43.26.66.6 1.22 1.16 1.77.55.56 1.11.9 1.77 1.16.64.25 1.37.42 2.43.47C8.94 22 9.28 22 12 22s3.06-.01 4.12-.06c1.06-.05 1.79-.22 2.43-.47.66-.26 1.22-.6 1.77-1.16.56-.55.9-1.11 1.16-1.77.25-.64.42-1.37.47-2.43.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.05-1.06-.22-1.79-.47-2.43-.26-.66-.6-1.22-1.16-1.77-.55-.56-1.11-.9-1.77-1.16-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.72 2 12 2Zm0 1.8c2.67 0 2.99.01 4.04.06.98.04 1.5.2 1.86.34.47.18.8.4 1.15.75.35.35.57.68.75 1.15.14.36.3.88.34 1.86.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.2 1.5-.34 1.86-.18.47-.4.8-.75 1.15-.35.35-.68.57-1.15.75-.36.14-.88.3-1.86.34-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.5-.2-1.86-.34-.47-.18-.8-.4-1.15-.75-.35-.35-.57-.68-.75-1.15-.14-.36-.3-.88-.34-1.86-.05-1.05-.06-1.37-.06-4.04s.01-2.99.06-4.04c.04-.98.2-1.5.34-1.86.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.36-.14.88-.3 1.86-.34C9.01 3.81 9.33 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 0 0 10.28 5.14 5.14 0 0 0 0-10.28Zm0 8.48a3.34 3.34 0 1 1 0-6.68 3.34 3.34 0 0 1 0 6.68Zm5.34-8.68a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-forest-300">Dove siamo</p>
+      <p class="mt-2 text-sm text-forest-200">{address}</p>
+      <MapEmbed query={address} class="mt-3 aspect-video w-full max-w-xs" />
+    </div>
+  </div>
+
+  <div class="mx-auto flex max-w-6xl flex-col gap-2 border-t border-forest-800 px-4 py-4 text-xs text-forest-300 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <p>© {year} Floresta Escursioni · P.IVA 03760780837</p>
+    <p>
+      Sviluppato da <a href="https://www.domenicospampinato.com" target="_blank" rel="noopener noreferrer" class="font-medium text-forest-200 hover:text-white">Domenico Spampinato</a>
+    </p>
+  </div>
+</footer>

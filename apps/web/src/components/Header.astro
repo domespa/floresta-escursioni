@@ -1,0 +1,85 @@
+---
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/escursioni", label: "Escursioni" },
+  { href: "/chi-siamo", label: "Chi Siamo" },
+  { href: "/contatti", label: "Contatti" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-forest-100 bg-cream-50/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+    <a href="/" class="font-display text-xl font-semibold text-forest-800">
+      Floresta <span class="text-clay-600">Escursioni</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex">
+      {
+        navItems.map((item) => {
+          const isActive = currentPath === item.href;
+          return (
+            <a
+              href={item.href}
+              class:list={[
+                "text-sm font-medium transition-colors hover:text-forest-700",
+                isActive ? "text-forest-800" : "text-forest-600",
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+      <a
+        href="/escursioni"
+        class="rounded-full bg-clay-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-700"
+      >
+        Prenota ora
+      </a>
+    </nav>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      aria-label="Apri il menu"
+      aria-expanded="false"
+      class="flex h-10 w-10 items-center justify-center rounded-lg text-forest-700 md:hidden"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="h-6 w-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="hidden flex-col gap-1 border-t border-forest-100 px-4 pb-4 md:hidden">
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class="rounded-lg px-3 py-2 text-sm font-medium text-forest-700 hover:bg-forest-50"
+        >
+          {item.label}
+        </a>
+      ))
+    }
+    <a
+      href="/escursioni"
+      class="mt-2 rounded-full bg-clay-600 px-5 py-2 text-center text-sm font-semibold text-white"
+    >
+      Prenota ora
+    </a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("flex");
+    menu?.classList.toggle("hidden", !isOpen);
+    toggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+  });
+</script>

@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const team = [
+  {
+    name: "Guida naturalistica",
+    bio: "Accompagnatore autorizzato con anni di esperienza sui sentieri dei Nebrodi.",
+    image: "https://picsum.photos/seed/guida-1/400/400",
+  },
+  {
+    name: "Guida naturalistica",
+    bio: "Esperta di flora e fauna locale, appassionata di fotografia naturalistica.",
+    image: "https://picsum.photos/seed/guida-2/400/400",
+  },
+];
+---
+
+<Layout
+  title="Chi Siamo | Floresta Escursioni"
+  description="La storia e le guide di Floresta Escursioni, accompagnatori naturalistici sui Nebrodi."
+>
+  <section class="border-b border-forest-100 bg-forest-50 py-14">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-wide text-clay-600">Chi siamo</p>
+      <h1 class="mt-1 font-display text-4xl font-semibold text-forest-900">Nati e cresciuti tra questi boschi</h1>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-14 sm:px-6">
+    <div class="space-y-5 text-lg text-forest-700">
+      <p>
+        Floresta Escursioni nasce dalla passione di un gruppo di guide del posto per il Parco dei Nebrodi, uno degli
+        angoli meno conosciuti — e più autentici — della Sicilia.
+      </p>
+      <p>
+        Organizziamo escursioni guidate a piedi per accompagnare chi ci sceglie alla scoperta di boschi secolari,
+        laghi di montagna e gole scavate dal tempo, con la sicurezza e la cura di chi questi sentieri li percorre da
+        una vita.
+      </p>
+      <p>
+        Lavoriamo in piccoli gruppi per garantire un'esperienza curata, adatta sia a chi cammina per la prima volta
+        sia a chi cerca un trekking più impegnativo.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-8 sm:grid-cols-2">
+      {
+        team.map((member) => (
+          <div class="rounded-2xl border border-forest-100 bg-white p-6 text-center shadow-sm">
+            <img src={member.image} alt={member.name} class="mx-auto h-28 w-28 rounded-full object-cover" />
+            <p class="mt-4 font-display text-lg font-semibold text-forest-900">{member.name}</p>
+            <p class="mt-2 text-sm text-forest-600">{member.bio}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

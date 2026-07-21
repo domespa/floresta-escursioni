@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Data dell'ultima revisione sostanziale del testo: va aggiornata a mano
+// solo quando cambia davvero il contenuto, non ad ogni build.
+const lastUpdated = "21 luglio 2026";
+
+const revisions = [
+  { date: "21 luglio 2026", note: "Prima pubblicazione dell'informativa." },
+  {
+    date: "21 luglio 2026",
+    note: "La mappa (footer e pagina Contatti) usa di nuovo Google Maps invece di OpenStreetMap.",
+  },
+];
+---
+
+<Layout
+  title="Privacy Policy | Floresta Escursioni"
+  description="Informativa sul trattamento dei dati personali di Floresta Escursioni ai sensi del GDPR (Regolamento UE 2016/679)."
+>
+  <section class="border-b border-forest-100 bg-forest-50 py-14">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-wide text-clay-600">Informativa</p>
+      <h1 class="mt-1 font-display text-4xl font-semibold text-forest-900">Privacy Policy</h1>
+      <p class="mt-3 text-sm text-forest-500">Ultimo aggiornamento: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <div class="space-y-8 text-forest-700">
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">1. Titolare del trattamento</h2>
+        <p class="mt-2">
+          Floresta Escursioni — P.IVA 03760780837, Corso Indipendenza 29, 98030 Floresta (ME).<br />
+          Contatti: <a href="mailto:info@florestaescursioni.it" class="underline hover:text-forest-900">info@florestaescursioni.it</a>,
+          <a href="tel:+393802578776" class="underline hover:text-forest-900">+39 380 257 8776</a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">2. Dati raccolti dal sito</h2>
+        <p class="mt-2">
+          Questo sito, ad oggi, non include moduli di raccolta dati e non installa cookie di profilazione o strumenti
+          di analisi statistica propri. Non viene quindi raccolto, salvato o trattato alcun dato personale dei
+          visitatori direttamente da noi tramite la semplice navigazione del sito.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">3. Contatti diretti (WhatsApp, telefono, email)</h2>
+        <p class="mt-2">
+          Se ci contatti tramite i pulsanti WhatsApp, telefono o email presenti sul sito, la comunicazione avviene
+          direttamente tramite l'app o il servizio che usi (WhatsApp/Meta, il tuo gestore telefonico, il tuo client
+          di posta): il trattamento dei dati scambiati in quella conversazione è regolato dall'informativa privacy di
+          quel servizio, non dalla nostra. I dati che ci fornisci in quella sede (nome, numero, richieste) vengono
+          usati solo per rispondere alla tua richiesta e organizzare l'escursione.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">4. Prenotazioni tramite Understory</h2>
+        <p class="mt-2">
+          Il pulsante "Prenota ora" ti reindirizza al sito esterno <strong>Understory.io</strong>, la piattaforma che
+          utilizziamo per gestire calendario, disponibilità e pagamento delle escursioni. Una volta su Understory,
+          il trattamento dei tuoi dati (nome, email, dati di pagamento) è regolato dall'informativa privacy di
+          Understory, non dalla nostra: ti invitiamo a consultarla prima di completare la prenotazione.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">5. Mappa Google Maps</h2>
+        <p class="mt-2">
+          Il footer, presente su ogni pagina, e la pagina Contatti mostrano una mappa fornita da Google Maps,
+          caricata automaticamente. Questo significa che, visitando qualsiasi pagina del sito, il tuo browser
+          contatta i server di Google e alcuni dati (es. il tuo indirizzo IP) vengono trasmessi a Google LLC secondo
+          la loro informativa privacy, indipendentemente da una tua azione esplicita. Nella pagina Contatti è
+          presente anche un link separato "Indirizzo" che apre Google Maps a schermo intero in una nuova scheda.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">6. Social network</h2>
+        <p class="mt-2">
+          I pulsanti Facebook e Instagram nel footer sono semplici link ai nostri profili: non caricano widget o
+          contenuti di terze parti sul sito, quindi non trasmettono dati finché non clicchi e non lasci il nostro
+          sito per visitare quei profili.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">7. I tuoi diritti</h2>
+        <p class="mt-2">
+          Ai sensi degli articoli 15-22 del GDPR (Regolamento UE 2016/679) hai diritto di accedere ai tuoi dati,
+          chiederne la rettifica o la cancellazione, limitarne od opporti al trattamento, e richiederne la
+          portabilità. Puoi esercitare questi diritti scrivendo a
+          <a href="mailto:info@florestaescursioni.it" class="underline hover:text-forest-900">info@florestaescursioni.it</a>.
+          Hai inoltre diritto di proporre reclamo al Garante per la Protezione dei Dati Personali
+          (<a href="https://www.gpdp.it" target="_blank" rel="noopener noreferrer" class="underline hover:text-forest-900">www.gpdp.it</a>).
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">8. Modifiche a questa informativa</h2>
+        <p class="mt-2">
+          Aggiorniamo questa pagina solo quando cambia effettivamente il trattamento dei dati (es. se in futuro
+          aggiungiamo un form di contatto o strumenti di analisi statistica): in quel caso la data di "Ultimo
+          aggiornamento" in cima alla pagina e il registro delle revisioni qui sotto verranno aggiornati di
+          conseguenza.
+        </p>
+        <ul class="mt-3 space-y-1 text-sm text-forest-500">
+          {revisions.map((rev) => <li>{rev.date} — {rev.note}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

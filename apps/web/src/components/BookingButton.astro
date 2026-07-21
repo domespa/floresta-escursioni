@@ -1,0 +1,24 @@
+---
+import type { Hike } from "@floresta/types";
+import { getBookingHref } from "../lib/booking";
+
+interface Props {
+  hike: Hike;
+  class?: string;
+}
+
+const { hike, class: className = "" } = Astro.props;
+const href = getBookingHref(hike);
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={[
+    "inline-flex items-center justify-center rounded-full bg-clay-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-700",
+    className,
+  ]}
+>
+  Prenota ora
+</a>

@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Come per la privacy policy: data aggiornata a mano solo quando cambia
+// davvero il contenuto della pagina.
+const lastUpdated = "21 luglio 2026";
+
+const revisions = [
+  { date: "21 luglio 2026", note: "Prima pubblicazione della cookie policy." },
+  {
+    date: "21 luglio 2026",
+    note: "La mappa (footer e pagina Contatti) usa di nuovo Google Maps invece di OpenStreetMap.",
+  },
+];
+---
+
+<Layout
+  title="Cookie Policy | Floresta Escursioni"
+  description="Informativa sui cookie e sui contenuti di terze parti usati dal sito di Floresta Escursioni."
+>
+  <section class="border-b border-forest-100 bg-forest-50 py-14">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-wide text-clay-600">Informativa</p>
+      <h1 class="mt-1 font-display text-4xl font-semibold text-forest-900">Cookie Policy</h1>
+      <p class="mt-3 text-sm text-forest-500">Ultimo aggiornamento: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <div class="space-y-8 text-forest-700">
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">Cosa sono i cookie</h2>
+        <p class="mt-2">
+          I cookie sono piccoli file di testo che i siti salvano sul tuo dispositivo per ricordare informazioni tra
+          una visita e l'altra (preferenze, sessioni di accesso, dati statistici).
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">Cookie usati da questo sito</h2>
+        <p class="mt-2">
+          Il sito di Floresta Escursioni <strong>non installa cookie propri</strong>: non ha login, carrello o
+          strumenti di analisi statistica (come Google Analytics) attivi. I font utilizzati sono ospitati
+          direttamente sul nostro server, non su Google Fonts, quindi anche in questo caso non viene trasmesso
+          alcun dato a terzi durante la normale navigazione.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">Mappa Google Maps (footer e pagina Contatti)</h2>
+        <p class="mt-2">
+          Il footer, presente in fondo a <strong>ogni pagina</strong> del sito, e la pagina
+          <a href="/contatti" class="underline hover:text-forest-900">Contatti</a> mostrano una mappa di Google Maps
+          caricata automaticamente. Visitando una qualsiasi pagina del sito, il tuo browser contatta quindi i server
+          di Google, che possono impostare cookie secondo la
+          <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer" class="underline hover:text-forest-900">
+            cookie policy di Google
+          </a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">Uscire dal sito: prenotazioni e social</h2>
+        <p class="mt-2">
+          Cliccando "Prenota ora" lasci il nostro sito per andare su <strong>Understory.io</strong>, e cliccando le
+          icone Facebook/Instagram nel footer lasci il nostro sito per andare sui rispettivi social network. Da quel
+          momento si applicano i cookie e le informative di quei siti, non le nostre.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">Come gestire i cookie dal browser</h2>
+        <p class="mt-2">
+          Anche se questo sito non installa cookie propri, puoi comunque controllare o bloccare i cookie di terze
+          parti (come quelli di Google Maps) dalle impostazioni del tuo browser: cerca la sezione "Privacy e
+          sicurezza" o "Cookie" nelle impostazioni di Chrome, Safari, Firefox o Edge.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-forest-900">Modifiche a questa informativa</h2>
+        <p class="mt-2">
+          Se in futuro aggiungeremo strumenti di analisi statistica o altri cookie propri, aggiorneremo questa
+          pagina e, dove richiesto dalla legge, ti chiederemo il consenso prima di attivarli.
+        </p>
+        <ul class="mt-3 space-y-1 text-sm text-forest-500">
+          {revisions.map((rev) => <li>{rev.date} — {rev.note}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

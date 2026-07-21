@@ -1,0 +1,73 @@
+---
+import type { Hike } from "@floresta/types";
+import BookingButton from "./BookingButton.astro";
+
+interface Props {
+  hike: Hike;
+}
+
+const { hike } = Astro.props;
+
+const difficultyStyles: Record<Hike["difficulty"], string> = {
+  facile: "bg-forest-100 text-forest-700",
+  media: "bg-clay-100 text-clay-700",
+  difficile: "bg-clay-200 text-clay-800",
+};
+
+const difficultyLabel: Record<Hike["difficulty"], string> = {
+  facile: "Facile",
+  media: "Media",
+  difficile: "Difficile",
+};
+
+const modeStyles: Record<Hike["mode"], string> = {
+  quad: "bg-clay-50 text-clay-700 border border-clay-200",
+  "trekking-mtb": "bg-forest-50 text-forest-700 border border-forest-200",
+};
+
+const modeLabel: Record<Hike["mode"], string> = {
+  quad: "Guidata in quad",
+  "trekking-mtb": "Trekking o Mountain Bike",
+};
+---
+
+<article
+  data-mode={hike.mode}
+  class="group flex flex-col overflow-hidden rounded-2xl border border-forest-100 bg-white shadow-sm transition-shadow hover:shadow-md"
+>
+  <a href={`/escursioni/${hike.slug}`} class="block overflow-hidden">
+    <img
+      src={hike.images[0]}
+      alt={hike.title}
+      loading="lazy"
+      class="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+    />
+  </a>
+
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class={`rounded-full px-3 py-1 text-xs font-semibold ${modeStyles[hike.mode]}`}>
+          {modeLabel[hike.mode]}
+        </span>
+        <span class={`rounded-full px-3 py-1 text-xs font-semibold ${difficultyStyles[hike.difficulty]}`}>
+          {difficultyLabel[hike.difficulty]}
+        </span>
+      </div>
+      <span class="text-xs font-medium uppercase tracking-wide text-forest-500">{hike.category}</span>
+    </div>
+
+    <h3 class="font-display text-lg font-semibold text-forest-900">
+      <a href={`/escursioni/${hike.slug}`} class="hover:text-clay-700">{hike.title}</a>
+    </h3>
+
+    <p class="flex-1 text-sm text-forest-600">{hike.shortDescription}</p>
+
+    <div class="flex items-center justify-between text-sm text-forest-700">
+      <span>{hike.durationHours}h · {hike.location}</span>
+      <span class="font-semibold text-forest-900">da €{hike.price}</span>
+    </div>
+
+    <BookingButton hike={hike} class="mt-1 w-full" />
+  </div>
+</article>
